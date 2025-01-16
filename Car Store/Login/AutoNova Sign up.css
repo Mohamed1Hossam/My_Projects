@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Poppins:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2c2b2b;
+}
+  
+  .container {
+    width: 1000px; /* Adjust width as needed */
+    background-color: #000000;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);
+    padding: 100px;
+    box-sizing: border-box;
+    display: flex;
+}
+  
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+  h1 {
+    color: red;
+    font-family: courier;
+    font-size: 50px;
+    margin-left: -50px; /* Reset margin */
+    margin-top: -40px;
+}
+
+  .text-group {
+    margin-top: 10px;
+    margin-left: -50px; /* Adjust as needed */
+    color: white;
+    font-family: courier;
+    text-align: left; /* Align text to the left */
+}
+
+  h2 {
+    margin-bottom: 20px; /* Add margin to the bottom of the h2 element */
+}
+
+  .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+  form {
+  display: flex;
+  flex-direction: column;
+}
+
+  .input-group {
+    display: flex;
+    justify-content: space-between; /* To evenly distribute the input fields */
+    font-family: courier;
+}
+  
+  .input-group input[type="text"] {
+    width: calc(50% - 5px); /* 50% width for each input field with a 5px margin between them */
+}
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: courier;
+}
+
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7d7d7d;
+    color: #fff;
+    font-family: courier;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+  button:hover {
+    background-color: #ff0000;
+}
+
+  .login {
+  display: flex; /* Add flex display */
+  align-items: center; /* Align items vertically */
+}
+
+  .already {
+  color: white;
+  font-family: courier;
+  text-align: center;
+  margin-bottom: -50px;
+  margin-right: 10px; /* Add margin between the text and button */
+}
+
+  .login-button {
+    font-family: courier;
+    padding: 5px 10px;
+    border: 2px solid white;
+    border-radius: 12px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-bottom: -50px;
+    text-decoration: underline;
+    transition: background-color 0.3s ease;
+}
+
+  .login-button:hover {
+    background-color: #ff0000;
+}

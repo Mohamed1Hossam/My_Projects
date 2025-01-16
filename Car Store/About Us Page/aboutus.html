@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is Our About Us Page" />
+    <title>About Us</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../main_Photos/LOGO-ICON.ico">
+    <script src="../main.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html"><img src="../main_Photos/LOGO.png"></a>
+        <div class="search">
+        <button class="material-symbols-outlined" onclick="searchBrand()">search</button>
+        <input type="search" class="search-input" onchange="searchBrand()" id="searchInput" placeholder="search..."
+            autocomplete="off">
+        </div>
+        <a href="../index.html"><i class="bx bxs-home"></i>Home</a>
+        <a href="../Account/Profile.html" onclick="return CheckLogin()"><i class='bx bxs-user'></i>Profile</a>
+        <a href="../index.html#service"><i class="bx bxs-cog"></i>Services</a>
+        <a href="../Login/AutoNova Login.html"><i class=" bx bxs-log-in-circle"></i>Login</a>
+        <a href="../About Us Page/aboutus.html"><i class=" bx bxs-info-circle"></i>About</a>
+        <a href="../cart.html"><button class="addbutton"><i class="bx bx-cart-add"></i>Cart</button></a>
+    </nav>
+    <section class="aboutus">
+        <div class="container-about">
+            <div class="image_section">
+                <img src="Photos\Screenshot 2024-04-04 205742.png" alt="About_Us">
+            </div>
+            <div class="content_section">
+                <h2>Autozone</h2>
+                <p>
+                    At Autozone, Our passionate team
+                    consists of skilled professionals
+                    with diverse backgrounds, united
+                    by a shared commitment to deliver
+                    exceptional service and products.
+                    From automotive enthusiasts to
+                    technology experts, each member
+                    brings unique expertise to the table,
+                    ensuring that we stay at the forefront
+                    of industry trends and advancements.
+                </p>
+                <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                    <a href="mailto:mohamed.hmg16@gmail.com" class="bx bxs-envelope" id="btn">Email Us</a>
+                    <a href="#!" class="bx bxs-chat" id="btn" onclick="openFeedbackBox()">Feedback</a>
+                    <a href="https://github.com/Autozone-CarGallery/Autozone-CarGallery.github.io" id="github"></a>
+                </div>
+                
+                <div id="feedbackBox" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <h2>We Value Your Feedback</h2>
+                        <textarea placeholder="Write your feedback here..." id="feedbackText" rows="5"></textarea>
+                        <div style="margin-top: 10px;">
+                            <button onclick="submitFeedback()">Submit</button>
+                            <button onclick="closeFeedbackBox()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+
+
+</body>
+
+</html>

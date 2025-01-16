@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is Our Volvo Page" />
+  <title>Volvo</title>
+  <link rel="icon" type="image/x-icon" href="../Cars/Volvo/volvo-car-logo-png-brand-image-20.png">
+  <script src="../main.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+</head>
+
+<body style=" background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+background: url(../Cars/Volvo/pexels-oli-liao-883836674-28155084.jpg);
+background-size: cover;
+background-position: center;">
+  <nav>
+    <a href="../index.html"><img src="../main_Photos/LOGO.png"></a>
+    <div class="search">
+      <button class="material-symbols-outlined" onclick="searchBrand()">search</button>
+      <input type="search" class="search-input" onchange="searchBrand()" id="searchInput" placeholder="search..."
+        autocomplete="off">
+    </div>
+    <a href="../index.html"><i class="bx bxs-home"></i>Home</a>
+    <a href="../Account/Profile.html" onclick="return CheckLogin()"><i class='bx bxs-user'></i>Profile</a>
+    <a href="../index.html#service"><i class="bx bxs-cog"></i>Services</a>
+    <a href="../Login/AutoNova Login.html"><i class=" bx bxs-log-in-circle"></i>Login</a>
+    <a href="../About Us Page/aboutus.html"><i class=" bx bxs-info-circle"></i>About</a>
+    <a href="../cart.html"><button class="addbutton"><i class="bx bx-cart-add"></i>Cart</button></a>
+  </nav>
+
+  <h1 style="text-align: center; margin-top: 20px; color: #eee;" id="BMW"><br>Choose Your Volvo Car</h1>
+
+  <div class="car-container">
+    <div class="car-MB">
+      <h2>Volvo XC40</h2>
+      <div class="image-viewer" id="image-viewer-40">
+        <button class="backward-btn">&lt;</button>
+        <img class="current-image" src="" alt="Selected Image">
+        <button class="forward-btn">&gt;</button>
+      </div>
+      <!-- <p>Speed: <span id="car1-speed">0</span> mph</p> -->
+      <p>Price: 2,500,000 EGP</p>
+      <!-- <p>Acceleration: <span id="car1-acceleration">0</span> m/s²</p> -->
+      <button class=" add-to-cart"  onclick="m(this)" value="39" >Add To Cart</button>
+      <a href="Volvo XC40.html">
+        <button class="details">Details</button>
+      </a>
+      <a href="../Form_Test_Drive/form-test-drive.html">
+        <button class="test">Test Drive</button>
+      </a>
+    </div>
+
+    <div class="car-MB">
+      <h2>Volvo XC60</h2>
+      <div class="image-viewer" id="image-viewer-41">
+        <button class="backward-btn">&lt;</button>
+        <img class="current-image" src="" alt="Selected Image">
+        <button class="forward-btn">&gt;</button>
+      </div>
+      <!-- <p>Speed: <span id="car2-speed">0</span> mph</p> -->
+      <p>Price: 3,800,000 EGP</p>
+      <!-- <p>Acceleration: <span id="car2-acceleration">0</span> m/s²</p> -->
+      <button class=" add-to-cart"  onclick="m(this)" value="40" >Add To Cart</button>
+      <a href="Volvo XC60.html">
+        <button class="details">Details</button>
+      </a>
+      <a href="../Form_Test_Drive/form-test-drive.html">
+        <button class="test">Test Drive</button>
+      </a>
+    </div>
+
+    <div class="car-MB">
+      <h2>Volvo XC90</h2>
+      <div class="image-viewer" id="image-viewer-42">
+        <button class="backward-btn">&lt;</button>
+        <img class="current-image" src="" alt="Selected Image">
+        <button class="forward-btn">&gt;</button>
+      </div>
+      <!-- <p>Speed: <span id="car2-speed">0</span> mph</p> -->
+      <p>Price: 5,300,000 EGP</p>
+      <!-- <p>Acceleration: <span id="car2-acceleration">0</span> m/s²</p> -->
+      <button class=" add-to-cart"  onclick="m(this)" value="41" >Add To Cart</button>
+      <a href="Volvo XC90.html">
+        <button class="details">Details</button>
+      </a>
+      <a href="../Form_Test_Drive/form-test-drive.html">
+        <button class="test">Test Drive</button>
+      </a>
+    </div>
+
+  </div>
+  <div  id="transaction-result"></div>
+  <footer style="background-color: #333; color: #fff; text-align: center; padding: 10px;">
+    &copy; 2024 Car Zone Team. All rights reserved.
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is Our Audi Page" />
+  <title>Audi</title>
+  <link rel="icon" type="image/x-icon" href="../Cars/Audi/5ec3e46558550c000442774b.png">
+  <script src="../main.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+</head>
+
+<body style=" background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+background: url(../Cars/Audi/Q8/2024-audi-q8-exterior-static-107-64f0ba5434e59.jpg);
+background-size: cover;
+background-position: center;">
+  <nav>
+    <a href="../index.html"><img src="../main_Photos/LOGO.png"></a>
+    <div class="search">
+      <button class="material-symbols-outlined" onclick="searchBrand()">search</button>
+      <input type="search" class="search-input" onchange="searchBrand()" id="searchInput" placeholder="search..."
+        autocomplete="off">
+    </div>
+    <a href="../index.html"><i class="bx bxs-home"></i>Home</a>
+    <a href="../Account/Profile.html" onclick="return CheckLogin()"><i class='bx bxs-user'></i>Profile</a>
+    <a href="../index.html#service"><i class="bx bxs-cog"></i>Services</a>
+    <a href="../Login/AutoNova Login.html"><i class=" bx bxs-log-in-circle"></i>Login</a>
+    <a href="../About Us Page/aboutus.html"><i class=" bx bxs-info-circle"></i>About</a>
+    <a href="../cart.html"><button class="addbutton"><i class="bx bx-cart-add"></i>Cart</button></a>
+  </nav>
+
+  <h1 style="text-align: center; margin-top: 20px; color: #eee;" id="BMW"><br>Choose Your Audi Car</h1>
+
+  <div class="car-container">
+    <div class="car-MB">
+      <h2>Audi A6</h2>
+      <div class="image-viewer" id="image-viewer-16">
+        <button class="backward-btn">&lt;</button>
+        <img class="current-image" src="" alt="Selected Image">
+        <button class="forward-btn">&gt;</button>
+      </div>
+      <!-- <p>Speed: <span id="car1-speed">0</span> mph</p> -->
+      <p>Price: 4,000,000 EGP</p>
+      <!-- <p>Acceleration: <span id="car1-acceleration">0</span> m/s²</p> -->
+      <button class=" add-to-cart"  onclick="m(this)" value="3" >Add To Cart</button>
+      <a href="Audi A6.html">
+        <button class="details">Details</button>
+      </a>
+      <a href="../Form_Test_Drive/form-test-drive.html">
+        <button class="test">Test Drive</button>
+      </a>
+    </div>
+
+    <div class="car-MB">
+      <h2>Audi Q3</h2>
+      <div class="image-viewer" id="image-viewer-17">
+        <button class="backward-btn">&lt;</button>
+        <img class="current-image" src="" alt="Selected Image">
+        <button class="forward-btn">&gt;</button>
+      </div>
+      <!-- <p>Speed: <span id="car2-speed">0</span> mph</p> -->
+      <p>Price: 5,500,000 EGP</p>
+      <!-- <p>Acceleration: <span id="car2-acceleration">0</span> m/s²</p> -->
+      <button class=" add-to-cart"  onclick="m(this)" value="4" >Add To Cart</button>
+      <a href="Audi Q3.html">
+        <button class="details">Details</button>
+      </a>
+      <a href="../Form_Test_Drive/form-test-drive.html">
+        <button class="test">Test Drive</button>
+      </a>
+    </div>
+
+    <div class="car-MB">
+      <h2>Audi Q8</h2>
+      <div class="image-viewer" id="image-viewer-18">
+        <button class="backward-btn">&lt;</button>
+        <img class="current-image" src="" alt="Selected Image">
+        <button class="forward-btn">&gt;</button>
+      </div>
+      <!-- <p>Speed: <span id="car2-speed">0</span> mph</p> -->
+      <p>Price: 8,500,000 EGP</p>
+      <!-- <p>Acceleration: <span id="car2-acceleration">0</span> m/s²</p> -->
+      <button class=" add-to-cart"  onclick="m(this)" value="5" >Add To Cart</button>
+      <a href="Audi Q8.html">
+        <button class="details">Details</button>
+      </a>
+      <a href="../Form_Test_Drive/form-test-drive.html">
+        <button class="test">Test Drive</button>
+      </a>
+    </div>
+
+  </div>
+  <div  id="transaction-result"></div>
+
+  <footer style="background-color: #333; color: #fff; text-align: center; padding: 10px;">
+    &copy; 2024 Car Zone Team. All rights reserved.
+  </footer>
+</body>
+
+</html>

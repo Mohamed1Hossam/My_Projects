@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is Our Car Store" />
+    <title>Profile</title>
+    <link rel="icon" type="image/x-icon" href="../main_Photos/LOGO-ICON.ico">
+    <script src="../main.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../main.css">
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html"><img src="../main_Photos/LOGO.png"></a>
+        <div class="search">
+            <button class="material-symbols-outlined" onclick="searchBrand()">search</button>
+            <input type="search" class="search-input" onchange="searchBrand()" id="searchInput" placeholder="search..."
+                autocomplete="off">
+        </div>
+        <a href="../index.html"><i class="bx bxs-home"></i>Home</a>
+        <a href="../Account/Profile.html" onclick="return CheckLogin()"><i class='bx bxs-user'></i>Profile</a>
+        <a href="../index.html#service"><i class="bx bxs-cog"></i>Services</a>
+        <a href="../Login/AutoNova Login.html"><i class=" bx bxs-log-in-circle"></i>Login</a>
+        <a href="../About Us Page/aboutus.html"><i class=" bx bxs-info-circle"></i>About</a>
+        <a href="../Cart/cart.html"><button class="addbutton"><i class="bx bx-cart-add"></i>Cart</button></a>
+    </nav>
+    <div class="card1">
+        <div class="left-container">
+            <img class="Personalimg" src="../Account/blue-circle-with-white-user_78370-4707.jpg" alt="Profile Image">
+            <h1 class="gradienttext">Name :</h1>
+            <h2 class="text">Customer</h2>
+            <div class="buttons">
+
+                <div class="action_btn">
+    
+                <button class="button3">Change Password</button>
+                <button class="button3">Logout</button>
+        
+                </div>
+    
+            </div>
+        </div>
+        <div class="right-container">
+            <h3 class="gradienttext">Profile Details</h3>
+            <table2>
+                <tr>
+                    <td2 class="header">----------------------------------------------------------------------------------------------------------------------</td2>
+                </tr>
+                <tr>
+                    <td2 class="header">Mobile :</td2>
+                    <td2>+20 XXXXXXXXXX</td2>
+                </tr>
+                <tr>
+                    <td2 class="header">Email :</td2>
+                    <td2>Customer@gmail.com</td2>
+                </tr>
+                <tr>
+                    <td2 class="header">Address :</td2>
+                    <td2>Address....</td2>
+                </tr>
+                <tr>
+                    <button class="button3">Edit Profile</button>
+                </tr>
+            </table2>
+        </div>
+    </div>
+
+</body>
+
+</html>

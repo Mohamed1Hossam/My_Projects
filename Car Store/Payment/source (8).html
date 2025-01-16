@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /* Full-page background and default styles */
+            body {
+                background-color: #f2f2f2; /* Entire webpage background */
+                color: white; /* Default text color for visibility */
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif; /* Optional: ensure consistent font */
+            }
+
+            /* Container that holds the main content */
+            .page-container {
+                max-width: 800px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: white; /* White background for the content area */
+                color: black; /* Black text inside the container */
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slight shadow for a neat effect */
+            }
+
+            /* Heading styles inside the container */
+            .page-container h1, 
+            .page-container h2, 
+            .page-container h3, 
+            .page-container h4 {
+                color: black; /* Black headings inside the white container */
+            }
+
+            /* Form group styles */
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: black; /* Labels are black to match the container text */
+            }
+
+            /* Icon styling */
+            .icon {
+                width: 30px;
+                height: 30px;
+                margin-left: 0px;
+                vertical-align: middle;
+            }
+
+            /* Input fields styling */
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 97%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #433e3e;
+            }
+
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            input[type="password"]:focus {
+                outline: none;
+                border-color: #d41916;
+            }
+
+            input[type="radio"] {
+                margin-right: 5px;
+            }
+
+            /* Hide payment details sections by default */
+            #payment-details .card-details,
+            #payment-details .instapay-form,
+            #payment-details .paypal-form,
+            #payment-details .bank-visa-form {
+                display: none;
+            }
+
+            /* Button styles */
+            #place-order-button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                margin-top: 20px;
+                border: none;
+                border-radius: 5px;
+                background-color: #ae0e0e;
+                color: #fff;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            #place-order-button:hover {
+                background-color: #720807;
+            }
+        </style>
+        <meta name="description" content="This is Our Car Store" />
+        <title>Payment</title>
+        <link rel="icon" href="../main_Photos/LOGO-ICON.ico">
+    </head>
+    <body>
+        <div class="page-container">
+            <h1>
+                Checkout 
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/check-out-icon.png" alt="" class="icon">
+            </h1>
+            <form action="index.html" method="post">
+                <!-- Billing Details Section -->
+                <div class="section billing-details">
+                    <h2>Billing Details</h2>
+                    <div class="form-group">
+                        <label for="country">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83cJyu9w9G4uyHZh5NkEVf-ssbQm07KNjjmRMzqqVdQ&amp;s" alt="" class="icon"> Country:
+                        </label>
+                        <input type="text" id="country" name="country" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">
+                            <img src="https://banner2.cleanpng.com/20180418/jzw/kisspng-cities-skylines-computer-icons-building-city-skycraper-5ad715d01a79a6.9868520715240452641085.jpg" alt="" class="icon">City:
+                        </label>
+                        <input type="text" id="city" name="city" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">
+                            <img src="https://static.thenounproject.com/png/2340040-200.png" alt="" class="icon"> Address:
+                        </label>
+                        <input type="text" id="address" name="address" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">
+                            <img src="https://t4.ftcdn.net/jpg/05/25/22/63/360_F_525226337_x7lLRcnU08vDLkijRwgcbaIs8zCfDktC.jpg" alt="" class="icon">Email Address:
+                        </label>
+                        <input type="email" id="email" name="email" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="full-name">
+                            <img src="https://icons.veryicon.com/png/o/miscellaneous/jiankangxian/full-name-11.png" alt="" class="icon"> Full Name:
+                        </label>
+                        <input type="text" id="full-name" name="full-name" required="">
+                        <div class="error-message" id="full-name-error"></div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods Section -->
+                <div class="section payment-methods">
+                    <h3>Payment Methods</h3>
+                    <label>
+                        <input type="radio" name="payment-method" value="credit-card"> Credit Card
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="instapay"> InstaPay
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="paypal"> PayPal
+                    </label>
+                </div>
+
+                <!-- Payment Details Section -->
+                <div class="section" id="payment-details">
+                    <h4>Payment Details</h4>
+                    <div class="card-details" id="card-details">
+                        <div class="form-group">
+                            <label for="card-number">Card Number:</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="Enter card number" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Cardholder Name:</label>
+                            <input type="text" id="card-name" name="card-name" placeholder="Enter cardholder name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry-date">Expiry Date:</label>
+                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YYYY" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" required="">
+                        </div>
+                    </div>
+                    <div class="instapay-form" id="instapay-form">
+                        <h5>InstaPay</h5>
+                        <p>Make payment using InstaPay by following the steps below:</p>
+                        <ol>
+                            <li>Log in to your InstaPay account.</li>
+                            <li>Select the recipient.</li>
+                            <li>Enter the payment amount.</li>
+                            <li>Confirm the payment.</li>
+                        </ol>
+                    </div>
+                    <div class="paypal-form" id="paypal-form">
+                        <div class="form-group">
+                            <label for="paypal-email">PayPal Email:</label>
+                            <input type="email" id="paypal-email" name="paypal-email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="paypal-password">Password:</label>
+                            <input type="password" id="paypal-password" name="paypal-password" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="paypal-amount">Amount:</label>
+                            <input type="text" id="paypal-amount" name="paypal-amount" required="">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" id="place-order-button">Place Order</button>
+            </form>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const fullNameInput = document.getElementById("full-name");
+
+                fullNameInput.addEventListener("input", function () {
+                    if (this.value.length < 5) {
+                        this.setCustomValidity("Full name must be at least 5 characters long.");
+                    } else {
+                        this.setCustomValidity("");
+                    }
+                });
+
+                const paymentMethodRadios = document.querySelectorAll('input[name="payment-method"]');
+                const cardDetails = document.getElementById("card-details");
+                const instaPayForm = document.getElementById("instapay-form");
+                const paypalForm = document.getElementById("paypal-form");
+
+                function togglePaymentDetails() {
+                    if (this.value === "credit-card") {
+                        cardDetails.style.display = "block";
+                        instaPayForm.style.display = "none";
+                        paypalForm.style.display = "none";
+                    } else if (this.value === "instapay") {
+                        cardDetails.style.display = "none";
+                        instaPayForm.style.display = "block";
+                        paypalForm.style.display = "none";
+                    } else if (this.value === "paypal") {
+                        cardDetails.style.display = "none";
+                        instaPayForm.style.display = "none";
+                        paypalForm.style.display = "block";
+                    } else {
+                        cardDetails.style.display = "none";
+                        instaPayForm.style.display = "none";
+                        paypalForm.style.display = "none";
+                    }
+                }
+
+                paymentMethodRadios.forEach(function (radio) {
+                    radio.addEventListener("change", togglePaymentDetails);
+                });
+            });
+        </script>
+    </body>
+</html>

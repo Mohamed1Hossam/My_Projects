@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is Our Car Store" />
+  <title>Auto Zone Car Gallery</title>
+  <link rel="icon" type="image/x-icon" href="Cars/Ford/car.png">
+  <script src="main.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+  <nav>
+    <a href="index.html"><img src="main_Photos/LOGO.png"></a>
+    <div class="search">
+      <button class="material-symbols-outlined" onclick="searchBrand()">search</button>
+      <input type="search" class="search-input" onchange="searchBrand()" id="searchInput" placeholder="search..."
+        autocomplete="off">
+    </div>
+    <a href="index.html"><i class="bx bxs-home"></i>Home</a>
+    <a href="Account/Profile.html" onclick="return CheckLogin()"><i class='bx bxs-user'></i>Profile</a>
+    <a href="index.html#service"><i class="bx bxs-cog"></i>Services</a>
+    <a href="Login/AutoNova Login.html"><i class=" bx bxs-log-in-circle"></i>Login</a>
+    <a href="About Us Page/aboutus.html"><i class=" bx bxs-info-circle"></i>About</a>
+    <a href="cart.html"><button class="addbutton"><i class="bx bx-cart-add"></i>Cart</button></a>
+  </nav>
+
+  <div class="iframe-container">
+    <div class="left">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55287.409818271546!2d31.31182577061311!3d29.994855906734518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f867f9b2c59%3A0x90b7b61a9aa56811!2sBanque%20Misr!5e0!3m2!1sen!2seg!4v1713714742920!5m2!1sen!2seg"
+        height="720" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="right">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110503.79446696035!2d31.4267087390625!3d30.058551800000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581896d39e0ebd%3A0xc9b2402e6a7c2c16!2sAvenue%20mall!5e0!3m2!1sen!2seg!4v1713540911384!5m2!1sen!2seg"
+        height="720" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  </div>
+  <div class="container">
+    <div class="brand-list">
+      <div class="brand-item">
+        <a href="Alfa Romeo/Alfa.html">
+          <img src="Cars/Alfa/5ec3e4d258550c000442774e.png" alt="Alfa Romeo">
+        </a>
+        <p>Alfa Romeo</p>
+      </div>
+      <div class="brand-item">
+        <a href="Audi/Audi.html">
+          <img src="Cars/Audi/5ec3e46558550c000442774b.png" alt="Audi">
+        </a>
+        <p>Audi</p>
+      </div>
+      <div class="brand-item">
+        <a href="BMW/BMW.html">
+          <img src="Cars/BMW/62066b3bd7b91b0004122601.png" alt="BMW">
+        </a>
+        <p>BMW</p>
+      </div>
+      <div class="brand-item">
+        <a href="Ford/Ford.html">
+          <img src="Cars/Ford/car-logo-png-2310.png" alt="Ford">
+        </a>
+        <p>Ford</p>
+      </div>
+      <div class="brand-item">
+        <a href="Mercedes/Mercedes.html">
+          <img src="Cars/Mercedes/car-logo-png-2296.png" alt="Mercedes">
+        </a>
+        <p>Mercedes</p>
+      </div>
+      <div class="brand-item">
+        <a href="Kia/Kia.html">
+          <img src="Cars/KIA/1024px-Kia-logo.png" alt="KIA">
+        </a>
+        <p>KIA</p>
+      </div>
+      <div class="brand-item">
+        <a href="Nissan/Nissan.html">
+          <img src="Cars/Nissan/nissan-2020-new-logo.jpg" alt="Nissan">
+        </a>
+        <p>Nissan</p>
+      </div>
+      <div class="brand-item">
+        <a href="Dodge/Dodge.html">
+          <img
+            src="Cars/Dodge/png-transparent-dodge-logo-dodge-ram-trucks-ram-pickup-car-logo-dodge-love-text-heart-thumbnail-removebg-preview.png"
+            alt="Dodge">
+        </a>
+        <p>Dodge</p>
+      </div>
+      <div class="brand-item">
+        <a href="Cheverolat/Chevorlat.html">
+          <img src="Cars/Chevy/Chevrolet-Logo.png" alt="Chevorlet">
+        </a>
+        <p>Chevorlet</p>
+      </div>
+      <div class="brand-item">
+        <a href="LAMBORGHINI/LAMBORGHINI.html">
+          <img src="Cars/Lamborgini/913_lamborghini.jpg" alt="Lamborgini">
+        </a>
+        <p>Lamborghini</p>
+      </div>
+      <div class="brand-item">
+        <a href="Toyota/Toyota.html">
+          <img src="Cars/Toyota/toyota-logo-photo-12.png" alt="Toyota">
+        </a>
+        <p>Toyota</p>
+      </div>
+      <div class="brand-item">
+        <a href="Volvo/Volvo.html">
+          <img src="Cars/Volvo/volvo-car-logo-png-brand-image-20.png" alt="Volvo">
+        </a>
+        <p>Volvo</p>
+      </div>
+      <!-- Add more brand items as needed -->
+    </div>
+  </div>
+  <footer style="background-color: #333; color: #fff; text-align: center; padding: 10px;">
+    &copy; 2024 Car Zone Team. All rights reserved.
+  </footer>
+</body>
+
+</html>

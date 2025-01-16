@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Poppins:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+}
+
+.container {
+   display: flex;
+   height: 100vh;
+}
+
+.left-partition {
+   flex: 1;
+   background-image: url('joey-banks-XUH3OSkdj4Y-unsplash.jpg'); /* Replace 'background-photo.jpg' with your image */
+   background-size: cover;
+   background-position: center;
+   display: flex;
+   flex-direction: column;
+}
+
+.right-partition {
+   flex: 1;
+   background-color: black; /* Changed background color to black */
+   display: flex;
+   flex-direction: column; /* Added to align the header and login section vertically */
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Adjust box-shadow to change the shadow effect */
+   position: relative; /* Added for positioning the header */
+}
+
+.header {
+   text-align: center;
+   position: absolute;
+   top: 80px; /* Adjust top position as needed */
+   left: 0;
+   right: 0;
+}
+
+.header h1 {
+   font-family: courier;
+   font-weight: bold;
+   margin-bottom: 5px;
+   color: white; /* Changed text color to white */
+}
+
+.header p {
+   font-family: 'Trebuchet MS';
+   font-style: italic;
+   color: #e90808; /* Changed text color to light gray */
+}
+
+.footer {
+   position: absolute;
+   bottom: 10px; /* Adjust bottom position as needed */
+   display: flex;
+   align-items: center;
+   color: white; /* Text color */
+}
+
+.footer p {
+   font-size: 24px; /* Adjust font size */
+   margin-right: 5px; /* Adjust margin between icon and text */
+}
+
+.footer h2 {
+   font-size: 18px; /* Adjust font size */
+   font-family: courier;
+}
+
+.login-section {
+   width: 300px;
+   padding: 20px;
+   border-radius: 20px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+   background-color: white; /* Changed background color to white */
+}
+
+.login-section h2 {
+   margin-bottom: 20px;
+   text-align: center;
+   font-family: courier;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 10px;
+   border: 1px solid #ccc;
+   border-radius: 20px;
+   box-sizing: border-box;
+   font-family: courier;
+}
+
+button {
+   background-color: #01050a;
+   color: #f2f2f2;
+   border: none;
+   border-radius: 20px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+button:hover {
+   background-color: #ff0008;
+}
+
+.signup-section {
+   position: absolute;
+   top: 10px; /* Adjust top position */
+   right: 10px; /* Adjust right position */
+   text-align: center;
+   display: flex;
+   align-items: center;
+}
+
+.signup-text {
+   color: white; /* Set text color to white */
+   margin-right: 10px; /* Add space between text and button */
+   font-family: courier;
+}
+
+.signup-button {
+   padding: 10px 20px;
+   background-color: black; /* Button color */
+   color: white; /* Text color */
+   border-radius: 8px; /* Rounded corners */
+   text-decoration: underline;
+   transition: background-color 0.3s ease; /* Smooth transition */
+   border: 2px solid white; /* Add a white border */
+   font-size: 10px;
+   font-family: courier;
+}
+
+.signup-button:hover {
+   background-color: #ee0909; /* Darker button color on hover */
+}

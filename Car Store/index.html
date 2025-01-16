@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is Our Car Store" />
+  <title>Auto Zone Car Gallery</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="main.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" href="main_Photos/LOGO-ICON.ico">
+</head>
+
+<body>
+  <nav>
+    <a href="index.html"><img src="main_Photos/LOGO.png"></a>
+    <div class="search">
+      <button class="material-symbols-outlined" onclick="searchBrand()">search</button>
+      <input type="search" class="search-input" onchange="searchBrand()" id="searchInput" placeholder="search..."
+        autocomplete="off">
+    </div>
+    <a href="index.html"><i class="bx bxs-home"></i>Home</a>
+    <a href="Account/Profile.html" onclick="return CheckLogin()"><i class='bx bxs-user'></i>Profile</a>
+    <a href="#service"><i class="bx bxs-cog"></i>Services</a>
+    <a href="Login/AutoNova Login.html"><i class=" bx bxs-log-in-circle"></i>Login</a>
+    <a href="About Us Page/aboutus.html"><i class=" bx bxs-info-circle"></i>About</a>
+    <a href="cart.html"><button class="addbutton"><i class="bx bx-cart-add"></i>Cart</button></a>
+  </nav>
+  <header>
+    <div class="container header-container">
+      <div class="header-left">
+        <h1>A car we drive says alot about us.</h1>
+        <p>
+          Are you ready to embark on a journey of freedom, convenience, and exhilaration?
+          Imagine yourself cruising down the open road, wind in your hair, and the world at your fingertips.
+          Owning a car isn't just about transportation,it's about unlocking a world of possibilities.
+        </p>
+        <a href="Shop.html"><button class="shop-button">Shop Now</button></a>
+      </div>
+    </div>
+    <section class="service" id="service">
+      <div class="section__container service__container">
+        <p class="section__subheader">WHY CHOOSE US</p>
+        <h2 class="section__header">Great Car Service</h2>
+        <p class="section__description">
+          Trust us to keep your automobile running smoothly and reliably.
+        </p>
+        <div class="service__grid">
+          <div class="service__card">
+            <img src="main_Photos/service-1.jpg" alt="service" />
+            <h4>Aligned Wheel</h4>
+            <p>
+              Experience smoother rides and extended tire life with our wheel
+              alignment service.
+            </p>
+          </div>
+          <div class="service__card">
+            <img src="main_Photos/service-2.jpg" alt="service" />
+            <h4>Electrical system</h4>
+            <p>
+              Elevate car's electrical system to peak performance with our
+              specialized expertise.
+            </p>
+          </div>
+          <div class="service__card">
+            <img src="main_Photos/service-3.jpg" alt="service" />
+            <h4>System Service</h4>
+            <p>
+              We utilize cutting-edge diagnostics and techniques to ensure
+              optimal condition.
+            </p>
+          </div>
+          <div class="service__card">
+            <img src="main_Photos/service-4.jpg" alt="service" />
+            <h4>Engine Diagnostics</h4>
+            <p>
+              Unlock the secrets of your car's performance with state-of-the-art
+              diagnostic services.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="customisation">
+      <div class="section__container customisation__container">
+        <br></br>
+        <p class="section__subheader">OUR CUSTOMISATION</p>
+        <h2 class="section__header">
+          Car Serving Matched with Great Workmanship
+        </h2>
+        <p class="section__description">
+          Our dedicated team of skilled technicians and mechanics takes pride in
+          delivering top-tier servicing for your beloved vehicle.
+        </p>
+
+        <section class="section__container price__container" id="price">
+          <p class="section__subheader">BEST PACKAGES</p>
+          <h2 class="section__header">Our Pricing Plans</h2>
+          <p class="section__description">
+            We offer a range of affordable and flexible pricing options.
+          </p>
+          <div class="price__grid">
+            <div class="price__card">
+              <h4>SILVER PACKAGE</h4>
+              <h3><sup>$</sup>35</h3>
+              <p>Routine Maintenance</p>
+              <p>Diagnostic Services</p>
+              <p>Wheel Alignment</p>
+              <p>Brake and Suspension</p>
+              <p>Air Conditioning</p>
+              <p>Scheduled Maintenance</p>
+            </div>
+            <div class="price__card">
+              <div class="price__card__ribbon">BESTSELLER</div>
+              <h4>PLATINUM PACKAGE</h4>
+              <h3><sup>$</sup>69</h3>
+              <p>Routine Maintenance</p>
+              <p>Diagnostic Services</p>
+              <p>Engine Tune-Ups</p>
+              <p>Tire Sales and Services</p>
+              <p>Exhaust System Repairs</p>
+              <p>Scheduled Maintenance</p>
+            </div>
+            <div class="price__card">
+              <h4>GOLD PACKAGE</h4>
+              <h3><sup>$</sup>39</h3>
+              <p>Routine Maintenance</p>
+              <p>Diagnostic Services</p>
+              <p>Brake and Suspension</p>
+              <p>Scheduled Maintenance</p>
+              <p>Wheel Alignment</p>
+              <p>Air Conditioning</p>
+            </div>
+          </div>
+        </section>
+        <br></br>
+  </header>
+  <footer style="background-color: #333; color: #fff; text-align: center; padding: 10px;">
+    &copy; 2024 Car Zone Team. All rights reserved.
+  </footer>
+</body>
+
+</html>
