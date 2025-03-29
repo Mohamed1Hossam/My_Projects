@@ -1,0 +1,16 @@
+Sentiment Analysis Report:
+
+1. Positive Reviews: 70.0%
+   - Customers expressed satisfaction with the product/service.
+   - Common themes: high quality, excellent performance, great value.
+
+2. Negative Reviews: 30.0%
+   - Customers reported issues with the product/service.
+   - Common complaints: poor quality, delivery delays, unmet expectations.
+
+3. Neutral Reviews: 0.0%
+   - Customers provided feedback without strong positive or negative sentiment.
+   - Common themes: average performance, room for improvement.
+
+Conclusion:
+The majority of customers (70.0%) expressed positive sentiment. Areas for improvement include addressing common complaints and enhancing customer satisfaction.
