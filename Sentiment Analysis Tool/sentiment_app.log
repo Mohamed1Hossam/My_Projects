@@ -1,0 +1,10 @@
+2025-08-22 03:11:31,789 - ERROR - Application startup error: 'SentimentAnalysisApp' object has no attribute 'export_charts'
+2025-08-25 19:24:30,554 - ERROR - Application startup error: unknown option "-minsize"
+2025-08-25 20:32:50,767 - ERROR - Application startup error: 'SentimentAnalysisApp' object has no attribute 'show_about'
+2025-08-25 20:39:35,175 - ERROR - Application startup error: 'SentimentAnalysisApp' object has no attribute 'show_about'
+2025-08-25 20:40:44,361 - ERROR - Application startup error: 'SentimentAnalysisApp' object has no attribute 'show_about'
+2025-08-25 20:49:22,728 - ERROR - Application startup error: 'SentimentAnalysisApp' object has no attribute 'show_about'
+2025-08-25 20:49:50,224 - ERROR - Application startup error: 'SentimentAnalysisApp' object has no attribute 'show_about'
+2025-08-25 20:51:28,708 - INFO - Data loaded successfully: 0 records
+2025-08-25 20:51:40,709 - INFO - Data loaded successfully: 10 records
+2025-08-25 20:54:04,160 - INFO - Application closed

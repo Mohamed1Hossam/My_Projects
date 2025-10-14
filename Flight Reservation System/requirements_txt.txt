@@ -1,0 +1,19 @@
+# Flight Reservation System Requirements
+# No external dependencies required - uses only Python standard library
+
+# Core dependencies (built into Python)
+# - tkinter (GUI framework)
+# - sqlite3 (database)
+# - datetime (date validation)
+# - os (file operations)
+# - sys (system operations)
+
+# For building executable:
+# pyinstaller==5.13.2
+
+# Development tools (optional):
+# black==23.7.0
+# flake8==6.0.0
+
+# Note: This application is designed to use only Python's standard library
+# to ensure maximum compatibility and ease of deployment.

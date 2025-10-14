@@ -1,0 +1,63 @@
+.\" Manpage for usermgr
+.TH USERMGR 1 "May 2025" "1.0" "User and Group Manager Manual"
+
+.SH NAME
+usermgr \- A simple CLI utility to manage users and groups on Linux systems
+
+.SH SYNOPSIS
+.B usermgr
+
+.SH DESCRIPTION
+.B usermgr
+is a C-based menu-driven tool that allows administrators to manage system users and groups.
+
+It supports adding, deleting, modifying users and groups, setting account info, and assigning users to groups.
+
+.SH FEATURES
+The following options are available via menu:
+
+.TP
+Add User
+Adds a new system user and sets a password.
+
+.TP
+Delete User
+Removes a user from the system.
+
+.TP
+Add Group
+Creates a new group.
+
+.TP
+Delete Group
+Removes a group.
+
+.TP
+Modify User Info
+Allows modification of password, shell, home directory, or username.
+
+.TP
+Change Account Info
+Allows setting of password expiry policies (min/max age, expiry days).
+
+.TP
+Assign User to Group
+Adds a user to a supplementary group.
+
+.SH AUTHOR
+Written by Mohamed Hossam.
+
+.SH FILES
+.nf
+usermgr.c - Source file
+usermgr    - Compiled binary
+
+.SH SEE ALSO
+useradd(8), userdel(8), groupadd(8), groupdel(8), usermod(8), chage(1), passwd(1)
+
+.SH BUGS
+No known bugs at this time.
+
+.SH COPYRIGHT
+Released under GNU General Public License.
+
