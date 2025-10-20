@@ -1,0 +1,27 @@
+********************************************************************************************************************************************
+							ROUTER_3
+********************************************************************************************************************************************
+# Set Router Identity
+system identity set name=Router3 #Yehia Mohamed
+
+# IP address for inter-router link (if needed)
+ip address add address=192.169.0.2/30 interface=ether4 #Omar Ayman
+ip address add address=192.170.0.2/30 interface=ether2 #Omar Ayman
+
+ip address add address=10.0.50.254/30 interface=ether1 #Omar Ayman
+
+#
+ip dhcp-client print #Shereen Mohamed
+ip dhcp-client remove numbers=0 #Shereen Mohamed
+
+# DHCP Pools
+ip pool add name=pool50 ranges=10.0.50.1-10.0.50.253 #Mohamed Hossam
+
+# DHCP Servers
+ip dhcp-server add interface=ether1 address-pool=pool50 lease-time=24h name=dhcp50 disabled=no #Mahmoud Mohamed
+
+# DHCP Network Info
+ip dhcp-server network add address=10.0.50.0/24 gateway=10.0.50.254 dns-server=8.8.8.8,8.8.4.4 #Mina Essam
+
+routing rip instance add name="router3-instance" redistribute=connected,rip route-timeout=30 route-gc-timeout=30 update-interval=15 #Mohamed Hossam
+routing rip interface-template add interface=all instance="router3-instance" #Mohamed Hossam

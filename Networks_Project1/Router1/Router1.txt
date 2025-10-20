@@ -1,0 +1,37 @@
+********************************************************************************************************************************************
+							ROUTER_1
+********************************************************************************************************************************************
+# Set Router Identity
+system identity set name=Router1  #Yehia Mohamed
+
+# IP address for inter-router link
+ip address add address=192.168.0.1/30 interface=ether3  #Omar Ayman
+ip address add address=192.170.0.1/30 interface=ether2  #Omar Ayman
+
+# VLAN 10 on ether1 (PC1 , PC2)
+interface vlan add name=vlan10 vlan-id=10 interface=ether1 disabled=no #Mina Essam
+ip address add address=10.0.10.254/24 interface=vlan10 #Mina Essam
+
+# VLAN 20 on ether1 (PC3 , PC5 , Webterm1 side)
+interface vlan add name=vlan20 vlan-id=20 interface=ether1 disabled=no #Mina Essam
+ip address add address=10.0.20.254/24 interface=vlan20 #Mina Essam
+
+#
+ip dhcp-client print #Shereen Mohamed
+ip dhcp-client remove numbers=0 #Shereen Mohamed
+
+# DHCP Pools
+ip pool add name=pool10 ranges=10.0.10.1-10.0.10.253 #Mohamed Hossam
+ip pool add name=pool20 ranges=10.0.20.1-10.0.20.253 #Mohamed Hossam
+
+# DHCP Servers
+ip dhcp-server add interface=vlan10 address-pool=pool10 lease-time=24h name=dhcp10 disabled=no #Mahmoud Mohamed
+ip dhcp-server add interface=vlan20 address-pool=pool20 lease-time=24h name=dhcp20 disabled=no #Mahmoud Mohamed
+
+# DHCP Network Info
+ip dhcp-server network add address=10.0.10.0/24 gateway=10.0.10.254 dns-server=8.8.8.8,8.8.4.4 #Mahmoud Mohamed
+ip dhcp-server network add address=10.0.20.0/24 gateway=10.0.20.254 dns-server=8.8.8.8,8.8.4.4 #Mahmoud Mohamed
+
+routing rip instance add name="router1-instance" redistribute=connected,rip route-timeout=30 route-gc-timeout=30 update-interval=15 #Mohamed Hossam
+routing rip interface-template add interface=all instance="router1-instance" #Mohamed Hossam
+
