@@ -2,12 +2,22 @@
 UI styling and theming
 """
 
+from typing import Dict, Union, Literal, TypedDict
+import tkinter as tk
 from config import (
     COLOR_BG_DARK, COLOR_BG_MEDIUM, COLOR_BG_LIGHT,
     COLOR_PLAYER, COLOR_AI, COLOR_SUCCESS, COLOR_DANGER,
     COLOR_NEUTRAL, COLOR_WARNING
 )
 
+ColorDict = Dict[str, str]
+ButtonStyle = Literal['normal', 'primary', 'danger', 'cell']
+
+
+class ButtonStyleConfig(TypedDict):
+    bg: str
+    fg: str
+    font: tuple[str, int] | tuple[str, int, str]
 
 class StyleManager:
     """Manages UI styles and themes"""
@@ -20,7 +30,7 @@ class StyleManager:
     FONT_CELL = ('Arial', 16, 'bold')
 
     # Color scheme
-    COLORS = {
+    COLORS: ColorDict = {
         'bg_dark': COLOR_BG_DARK,
         'bg_medium': COLOR_BG_MEDIUM,
         'bg_light': COLOR_BG_LIGHT,
@@ -44,9 +54,9 @@ class StyleManager:
         return StyleManager.COLORS['white']
 
     @staticmethod
-    def configure_button(button, style='normal'):
+    def configure_button(button: tk.Button, style: ButtonStyle = 'normal') -> None:
         """Apply style to button"""
-        styles = {
+        styles: Dict[str, ButtonStyleConfig] = {
             'normal': {
                 'bg': StyleManager.COLORS['white'],
                 'fg': StyleManager.COLORS['black'],

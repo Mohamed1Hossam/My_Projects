@@ -1,0 +1,11 @@
+"""Type hints for config.py"""
+
+COLOR_BG_DARK: str
+COLOR_BG_MEDIUM: str
+COLOR_BG_LIGHT: str
+COLOR_PLAYER: str
+COLOR_AI: str
+COLOR_SUCCESS: str
+COLOR_DANGER: str
+COLOR_NEUTRAL: str
+COLOR_WARNING: str

@@ -29,8 +29,10 @@ class MainWindow:
         # Create main window
         self.root = tk.Tk()
         self.root.title("Intelligent Cubic Player - 4x4x4 Tic-Tac-Toe")
-        self.root.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}")
-        self.root.resizable(False, False)
+
+        # Make window fullscreen
+        self.root.attributes('-fullscreen', True)
+        self.root.state('zoomed')
 
         # Game components
         self.board = Board()
@@ -47,16 +49,23 @@ class MainWindow:
         # Setup GUI
         self._setup_gui()
 
+        # Read player name from control panel entry (inline)
+        self.player_name = self.control_panel.get_player_name()
+
         # Print welcome message
         self._print_welcome()
+
+        # Update initial status with player name
+        self.info_panel.update_status(f"{self.player_name} turn", StyleManager.COLORS['player'])
 
     def _setup_gui(self):
         """Setup all GUI components"""
         # Control panel at top
+        # Control panel with name change callback
         self.control_panel = ControlPanel(self.root, {
-            'layer_change': self._on_layer_change,
             'new_game': self._on_new_game,
-            'exit': self._on_exit
+            'exit': self._on_exit,
+            'name_change': self._on_name_change
         })
         self.control_panel.pack(side=tk.TOP, fill=tk.X)
 
@@ -68,46 +77,18 @@ class MainWindow:
         self.board_display = BoardDisplay(self.root, self._on_cell_click)
         self.board_display.pack(side=tk.TOP, expand=True, fill=tk.BOTH)
 
-        # Instructions at bottom
-        self._create_instructions()
-
-    def _create_instructions(self):
-        """Create instruction panel"""
-        inst_frame = tk.Frame(self.root, bg=StyleManager.COLORS['bg_medium'],
-                              padx=10, pady=5)
-        inst_frame.pack(side=tk.BOTTOM, fill=tk.X)
-
-        instructions = (
-            "HOW TO PLAY: Click on any empty cell to place your piece (Blue ●). "
-            "Switch layers using the radio buttons. "
-            "Get 4 in a row in any direction to win!"
-        )
-
-        tk.Label(
-            inst_frame,
-            text=instructions,
-            font=StyleManager.FONT_NORMAL,
-            bg=StyleManager.COLORS['bg_medium'],
-            fg=StyleManager.COLORS['white'],
-            wraplength=WINDOW_WIDTH - 40
-        ).pack()
-
     def _print_welcome(self):
         """Print welcome message to console"""
         print("\n" + "=" * 70)
         print("INTELLIGENT CUBIC PLAYER - 4x4x4 TIC-TAC-TOE")
         print("=" * 70)
         print("\nProject Features:")
-        print("  ✓ Minimax Algorithm with Alpha-Beta Pruning")
-        print("  ✓ Advanced Heuristic Evaluation (76 winning lines)")
-        print("  ✓ Transposition Table for Position Caching")
-        print("  ✓ Move Ordering for Better Pruning")
-        print("  ✓ Adaptive Search Depth")
-        print("  ✓ User-Friendly 3D Visualization")
-        print("\nGame Rules:")
-        print("  - Players alternate placing pieces on a 4x4x4 grid")
-        print("  - First to get 4 in a row (any direction) wins")
-        print("  - 76 possible winning lines")
+        print("  * Minimax Algorithm with Alpha-Beta Pruning")
+        print("  * Advanced Heuristic Evaluation (76 winning lines)")
+        print("  * Transposition Table for Position Caching")
+        print("  * Move Ordering for Better Pruning")
+        print("  * Adaptive Search Depth")
+        print("  * User-Friendly 3D Visualization")
         print("=" * 70 + "\n")
 
     def _on_cell_click(self, x: int, y: int, z: int):
@@ -119,6 +100,7 @@ class MainWindow:
         if self.board.make_move(x, y, z, PLAYER_HUMAN):
             self.move_count += 1
             self.info_panel.update_move_count(self.move_count)
+            # Update the specific cell across displayed layers
             self.board_display.update_cell(x, y, z, PLAYER_HUMAN, False)
 
             # Check if game over
@@ -156,8 +138,7 @@ class MainWindow:
         """Update GUI after AI move"""
         self.info_panel.update_move_count(self.move_count)
         self.info_panel.update_ai_time(self.ai.search_time)
-
-        # Update all cells on current layer
+        # Update all visible layers
         self.board_display.refresh_all_cells(self.board, True)
 
         # Check if game over
@@ -169,7 +150,7 @@ class MainWindow:
         # Switch back to human
         self.current_player = PLAYER_HUMAN
         self.ai_thinking = False
-        self.info_panel.update_status("Your Turn!",
+        self.info_panel.update_status(f"{self.player_name} turn",
                                       StyleManager.COLORS['player'])
         self.board_display.set_all_cells_state(True)
 
@@ -179,24 +160,26 @@ class MainWindow:
         self.board_display.set_all_cells_state(False)
 
         if winner == PLAYER_HUMAN:
-            message = "🎉 Congratulations! You won! 🎉"
+            message = "*** Congratulations! You won! ***"
             self.info_panel.update_status("You Won!",
                                           StyleManager.COLORS['success'])
         elif winner == PLAYER_AI:
-            message = "🤖 AI wins! Better luck next time! 🤖"
+            message = "### AI wins! Better luck next time! ###"
             self.info_panel.update_status("AI Won!",
                                           StyleManager.COLORS['danger'])
         else:
-            message = "🤝 It's a draw! Well played! 🤝"
+            message = "=== It's a draw! Well played! ==="
             self.info_panel.update_status("Draw!",
                                           StyleManager.COLORS['neutral'])
 
         messagebox.showinfo("Game Over", message)
 
-    def _on_layer_change(self, layer: int):
-        """Handle layer change"""
-        self.board_display.set_layer(layer)
-        self.board_display.refresh_all_cells(self.board, not self.ai_thinking and not self.game_over)
+    def _on_name_change(self, name: str):
+        """Handle player name change"""
+        self.player_name = name
+        if self.current_player == PLAYER_HUMAN and not self.game_over:
+            self.info_panel.update_status(f"{self.player_name} turn",
+                                      StyleManager.COLORS['player'])
 
     def _on_new_game(self):
         """Start new game"""
@@ -207,18 +190,18 @@ class MainWindow:
         self.game_over = False
         self.ai_thinking = False
         self.move_count = 0
-
         # Reset GUI
-        self.info_panel.update_status("Your Turn!",
+        self.info_panel.update_status(f"{self.player_name} turn",
                                       StyleManager.COLORS['player'])
         self.info_panel.update_move_count(0)
         self.info_panel.update_ai_time(0)
-        self.board_display.set_layer(0)
         self.board_display.refresh_all_cells(self.board, True)
 
         print("\n" + "=" * 70)
         print("NEW GAME STARTED")
         print("=" * 70 + "\n")
+
+    # Player name is entered in the control panel entry; dialog removed.
 
     def _on_exit(self):
         """Exit application"""

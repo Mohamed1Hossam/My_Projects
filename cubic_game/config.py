@@ -25,10 +25,11 @@ WEIGHT_TWO_IN_ROW = 10
 WEIGHT_ONE_IN_ROW = 1
 
 # GUI Configuration
-WINDOW_WIDTH = 1000
-WINDOW_HEIGHT = 750
-BUTTON_WIDTH = 8
-BUTTON_HEIGHT = 4
+WINDOW_WIDTH = 1920  # Full HD width
+WINDOW_HEIGHT = 1080  # Full HD height
+BUTTON_WIDTH = 4  # Smaller button width
+BUTTON_HEIGHT = 2  # Smaller button height
+LAYERS_TO_SHOW = 4  # Number of layers to show simultaneously
 
 # Colors
 COLOR_BG_DARK = '#2c3e50'

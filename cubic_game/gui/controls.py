@@ -3,18 +3,19 @@ Control panel with game controls
 """
 
 import tkinter as tk
-from tkinter import ttk
+import tkinter as tk
+from typing import Dict, Callable, Union, Any
 from gui.styles import StyleManager
 
 
 class ControlPanel:
     """Game control panel"""
 
-    def __init__(self, parent, callbacks):
+    def __init__(self, parent: Union[tk.Tk, tk.Frame], callbacks: Dict[str, Callable[..., None]]):
         """
         Args:
             parent: Parent widget
-            callbacks: Dict of callback functions
+            callbacks: Dict of callback functions (new_game, exit, name_change)
         """
         self.callbacks = callbacks
 
@@ -32,33 +33,44 @@ class ControlPanel:
         )
         title.pack(pady=5)
 
-        # Layer selection frame
-        layer_frame = tk.Frame(self.frame, bg=StyleManager.COLORS['bg_medium'],
-                               padx=10, pady=10)
-        layer_frame.pack(fill=tk.X, pady=5)
+        # Player name entry (inline in control panel)
+        name_frame = tk.Frame(self.frame, bg=StyleManager.COLORS['bg_dark'])
+        name_frame.pack(pady=(0, 8))
 
         tk.Label(
-            layer_frame,
-            text="Select Layer (Z-axis):",
+            name_frame,
+            text="Player Name:",
             font=StyleManager.FONT_NORMAL,
-            bg=StyleManager.COLORS['bg_medium'],
+            bg=StyleManager.COLORS['bg_dark'],
             fg=StyleManager.COLORS['white']
-        ).pack(side=tk.LEFT, padx=5)
+        ).pack(side=tk.LEFT, padx=(0, 6))
 
-        self.layer_var = tk.IntVar(value=0)
-        for i in range(4):
-            rb = tk.Radiobutton(
-                layer_frame,
-                text=f"Layer {i}",
-                variable=self.layer_var,
-                value=i,
-                command=self._on_layer_change,
-                font=StyleManager.FONT_NORMAL,
-                bg=StyleManager.COLORS['bg_medium'],
-                fg=StyleManager.COLORS['white'],
-                selectcolor=StyleManager.COLORS['bg_dark']
-            )
-            rb.pack(side=tk.LEFT, padx=5)
+        self.name_var = tk.StringVar(value="Player")
+        # Create a container frame for entry and button
+        entry_container = tk.Frame(name_frame, bg=StyleManager.COLORS['bg_dark'])
+        entry_container.pack(side=tk.LEFT)
+
+        # Name entry with adjusted height
+        name_entry = tk.Entry(
+            entry_container,
+            textvariable=self.name_var,
+            font=StyleManager.FONT_NORMAL,
+            width=16
+        )
+        name_entry.pack(side=tk.LEFT, ipady=2)  # Add internal padding to match button height
+
+        # Apply name button with matching height
+        apply_btn = tk.Button(
+            entry_container,
+            text="Enter",
+            command=self._on_name_change,
+            font=StyleManager.FONT_NORMAL
+        )
+        StyleManager.configure_button(apply_btn, 'primary')
+        apply_btn.pack(side=tk.LEFT, padx=(5, 0), ipady=2)  # Match the entry height
+
+        # Bind Enter key to both entry and button
+        name_entry.bind('<Return>', lambda e: self._on_name_change())
 
         # Button frame
         button_frame = tk.Frame(self.frame, bg=StyleManager.COLORS['bg_dark'])
@@ -86,18 +98,19 @@ class ControlPanel:
         StyleManager.configure_button(exit_btn, 'danger')
         exit_btn.pack(side=tk.LEFT, padx=5)
 
-    def pack(self, **kwargs):
+    def pack(self, **kwargs: Any) -> None:
         """Pack the frame"""
         self.frame.pack(**kwargs)
 
-    def get_current_layer(self) -> int:
-        """Get currently selected layer"""
-        return self.layer_var.get()
+    def _on_name_change(self):
+        """Handle name change button click"""
+        if 'name_change' in self.callbacks:
+            self.callbacks['name_change'](self.get_player_name())
 
-    def _on_layer_change(self):
-        """Handle layer change"""
-        if 'layer_change' in self.callbacks:
-            self.callbacks['layer_change'](self.layer_var.get())
+    def get_player_name(self) -> str:
+        """Return the current player name from the entry"""
+        return self.name_var.get().strip() or "Player"
+
 
     def _on_new_game(self):
         """Handle new game button"""
