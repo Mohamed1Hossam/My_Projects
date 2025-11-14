@@ -3,9 +3,7 @@ Game board representation and basic operations
 """
 
 import numpy as np
-from typing import List, Tuple, Optional
 from config import BOARD_SIZE, EMPTY_CELL
-
 
 class Board:
     """
@@ -22,7 +20,7 @@ class Board:
         self.grid = np.zeros((BOARD_SIZE, BOARD_SIZE, BOARD_SIZE), dtype=int)
         self.move_history = []
 
-    def make_move(self, x: int, y: int, z: int, player: int) -> bool:
+    def make_move(self, x, y, z, player):
         """
         Make a move on the board
 
@@ -40,19 +38,19 @@ class Board:
         self.move_history.append((x, y, z, player))
         return True
 
-    def undo_move(self, x: int, y: int, z: int):
+    def undo_move(self, x, y, z):
         """Undo a move at given position"""
         self.grid[x, y, z] = EMPTY_CELL
         if self.move_history and self.move_history[-1][:3] == (x, y, z):
             self.move_history.pop()
 
-    def is_valid_move(self, x: int, y: int, z: int) -> bool:
+    def is_valid_move(self, x, y, z):
         """Check if move is valid"""
         if not (0 <= x < BOARD_SIZE and 0 <= y < BOARD_SIZE and 0 <= z < BOARD_SIZE):
             return False
         return self.grid[x, y, z] == EMPTY_CELL
 
-    def get_valid_moves(self) -> List[Tuple[int, int, int]]:
+    def get_valid_moves(self):
         """Get all valid moves (empty positions)"""
         moves = []
         for x in range(BOARD_SIZE):
@@ -62,22 +60,22 @@ class Board:
                         moves.append((x, y, z))
         return moves
 
-    def get_cell(self, x: int, y: int, z: int) -> int:
+    def get_cell(self, x, y, z):
         """Get value at cell"""
         return self.grid[x, y, z]
 
-    def is_full(self) -> bool:
+    def is_full(self):
         """Check if board is full"""
         return len(self.get_valid_moves()) == 0
 
-    def copy(self) -> 'Board':
+    def copy(self):
         """Create a copy of the board"""
         new_board = Board()
         new_board.grid = np.copy(self.grid)
         new_board.move_history = self.move_history.copy()
         return new_board
 
-    def __str__(self) -> str:
+    def __str__(self):
         """String representation of board"""
         result = []
         for z in range(BOARD_SIZE):

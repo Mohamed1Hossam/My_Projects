@@ -7,7 +7,6 @@ from typing import Callable, Optional
 from gui.styles import StyleManager
 from config import BOARD_SIZE, BUTTON_WIDTH, BUTTON_HEIGHT
 
-
 class BoardDisplay:
     """Displays the 4x4x4 game board with multiple layers"""
 

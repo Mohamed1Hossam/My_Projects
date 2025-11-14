@@ -3,10 +3,8 @@ Control panel with game controls
 """
 
 import tkinter as tk
-import tkinter as tk
 from typing import Dict, Callable, Union, Any
 from gui.styles import StyleManager
-
 
 class ControlPanel:
     """Game control panel"""

@@ -2,11 +2,9 @@
 Game rules and winning condition checking
 """
 
-from typing import List, Tuple, Optional
 import numpy as np
 from config import BOARD_SIZE, PLAYER_HUMAN, PLAYER_AI, EMPTY_CELL
 from game.board import Board
-
 
 class GameRules:
     """
@@ -17,7 +15,7 @@ class GameRules:
         """Initialize and generate all winning lines"""
         self.winning_lines = self._generate_all_winning_lines()
 
-    def _generate_all_winning_lines(self) -> List[List[Tuple[int, int, int]]]:
+    def _generate_all_winning_lines(self):
         """
         Generate all 76 possible winning lines in the 4x4x4 cube
 
@@ -70,7 +68,7 @@ class GameRules:
 
         return lines
 
-    def check_winner(self, board: Board) -> Optional[int]:
+    def check_winner(self, board):
         """
         Check if there's a winner
 
@@ -95,7 +93,7 @@ class GameRules:
 
         return None  # Game continues
 
-    def get_line_value(self, board: Board, line: List[Tuple[int, int, int]]) -> Tuple[int, int, int]:
+    def get_line_value(self, board, line):
         """
         Analyze a line and return counts
 
@@ -113,7 +111,7 @@ class GameRules:
 
         return (player_count, ai_count, empty_count)
 
-    def is_line_blocked(self, board: Board, line: List[Tuple[int, int, int]]) -> bool:
+    def is_line_blocked(self, board, line):
         """
         Check if a line is blocked (has pieces from both players)
 
@@ -127,6 +125,6 @@ class GameRules:
         player_count, ai_count, _ = self.get_line_value(board, line)
         return player_count > 0 and ai_count > 0
 
-    def count_winning_lines(self) -> int:
+    def count_winning_lines(self):
         """Return total number of winning lines"""
         return len(self.winning_lines)
